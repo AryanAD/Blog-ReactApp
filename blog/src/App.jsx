@@ -1,11 +1,11 @@
 import "./App.css";
-import Display from "./Display";
+import { Header, Footer } from "./layouts";
 
 function App() {
 	return (
 		<>
-			<h1>BLOG APP</h1>
-			<Display />
+			<Header />
+			<Footer />
 		</>
 	);
 }
