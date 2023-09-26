@@ -128,8 +128,8 @@ const NavBar = () => {
 								onClick={handleOpenUserMenu}
 								sx={{ p: 0 }}>
 								<Avatar
-									alt="Remy Sharp"
-									src="/static/images/avatar/2.jpg"
+									sx={{ bgcolor: "chocolate" }}
+									src="/broken-image.jpg"
 								/>
 							</IconButton>
 						</Tooltip>
