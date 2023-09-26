@@ -1,25 +1,22 @@
 import "./App.css";
-import { BrowserRouter, Routes, Route, Checkout } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Nav from "./components/Nav";
+import Body from "./layouts/Body";
+import Display from "./Display";
 
-function App() {
+const App = () => {
 	return (
-		<>
+		<div className="App">
+			<Display />
 			<Nav />
-			<BrowserRouter>
-				<Routes>
-					<Route
-						path="/"
-						element={<App />}
-					/>
-					<Route
-						path="/checkout"
-						element={<Checkout />}
-					/>
-				</Routes>
-			</BrowserRouter>
-		</>
+			<Routes>
+				<Route
+					path="/"
+					element={<Body />}
+				/>
+			</Routes>
+		</div>
 	);
-}
+};
 
 export default App;

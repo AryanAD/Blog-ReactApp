@@ -7,7 +7,6 @@ const Body = () => {
 		<>
 			<Header />
 			<Footer />
-			<Outlet />
 		</>
 	);
 };
