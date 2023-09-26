@@ -11,7 +11,7 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
+import EditNoteIcon from "@mui/icons-material/EditNote";
 
 const pages = ["Products", "Pricing", "Blog"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
@@ -39,7 +39,7 @@ const NavBar = () => {
 		<AppBar position="static">
 			<Container maxWidth="xl">
 				<Toolbar disableGutters>
-					<AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
+					<EditNoteIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
 					<Typography
 						variant="h6"
 						noWrap
@@ -54,7 +54,7 @@ const NavBar = () => {
 							color: "inherit",
 							textDecoration: "none",
 						}}>
-						LOGO
+						BLOG APP
 					</Typography>
 
 					<Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -93,7 +93,7 @@ const NavBar = () => {
 							))}
 						</Menu>
 					</Box>
-					<AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+					<EditNoteIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
 					<Typography
 						variant="h5"
 						noWrap
@@ -109,7 +109,7 @@ const NavBar = () => {
 							color: "inherit",
 							textDecoration: "none",
 						}}>
-						LOGO
+						BLOG APP
 					</Typography>
 					<Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
 						{pages.map((page) => (
