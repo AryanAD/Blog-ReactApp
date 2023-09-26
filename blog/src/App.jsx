@@ -1,11 +1,23 @@
 import "./App.css";
-import { Header, Footer } from "./layouts";
+import { BrowserRouter, Routes, Route, Checkout } from "react-router-dom";
+import Nav from "./components/Nav";
 
 function App() {
 	return (
 		<>
-			<Header />
-			<Footer />
+			<Nav />
+			<BrowserRouter>
+				<Routes>
+					<Route
+						path="/"
+						element={<App />}
+					/>
+					<Route
+						path="/checkout"
+						element={<Checkout />}
+					/>
+				</Routes>
+			</BrowserRouter>
 		</>
 	);
 }
