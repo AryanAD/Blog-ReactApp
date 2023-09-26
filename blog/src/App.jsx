@@ -1,7 +1,8 @@
 import "./App.css";
 import { Route, Routes } from "react-router";
-import Home from "./components/Home";
+import Home from "./layout/Home";
 import NavBar from "./components/NavBar";
+import Footer from "./layout/Footer";
 
 const App = () => {
 	return (
@@ -12,6 +13,7 @@ const App = () => {
 					path="/"
 					element={<Home />}></Route>
 			</Routes>
+			<Footer />
 		</div>
 	);
 };
