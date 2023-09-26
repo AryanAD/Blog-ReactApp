@@ -1,5 +1,6 @@
 import "./App.css";
 import { Route, Routes } from "react-router";
+import Home from "./components/Home";
 
 const App = () => {
 	return (
@@ -10,7 +11,6 @@ const App = () => {
 					element={<Home />}
 				/>
 			</Routes>
-			<h1>Hi</h1>
 		</div>
 	);
 };
