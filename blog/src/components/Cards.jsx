@@ -27,10 +27,8 @@ const Cards = () => {
 					<Typography
 						variant="body2"
 						color="text.secondary">
-						Blog Content || Lorem ipsum, dolor sit amet consectetur adipisicing
-						elit. Sint dolores dicta facere sit fugiat aliquam, nulla,
-						perferendis obcaecati odio beatae laborum mollitia iusto quidem qui
-						vel alias voluptatem voluptates at!
+						Blog Content || perferendis obcaecati odio beatae laborum mollitia
+						iusto quidem qui vel alias voluptatem voluptates at!
 					</Typography>
 				</CardContent>
 				<CardActions>
@@ -60,10 +58,8 @@ const Cards = () => {
 					<Typography
 						variant="body2"
 						color="text.secondary">
-						Blog Content || Lorem ipsum, dolor sit amet consectetur adipisicing
-						elit. Sint dolores dicta facere sit fugiat aliquam, nulla,
-						perferendis obcaecati odio beatae laborum mollitia iusto quidem qui
-						vel alias voluptatem voluptates at!
+						Blog Content || perferendis obcaecati odio beatae laborum mollitia
+						iusto quidem qui vel alias voluptatem voluptates at!
 					</Typography>
 				</CardContent>
 				<CardActions>
@@ -92,10 +88,8 @@ const Cards = () => {
 					<Typography
 						variant="body2"
 						color="text.secondary">
-						Blog Content || Lorem ipsum, dolor sit amet consectetur adipisicing
-						elit. Sint dolores dicta facere sit fugiat aliquam, nulla,
-						perferendis obcaecati odio beatae laborum mollitia iusto quidem qui
-						vel alias voluptatem voluptates at!
+						Blog Content || perferendis obcaecati odio beatae laborum mollitia
+						iusto quidem qui vel alias voluptatem voluptates at!
 					</Typography>
 				</CardContent>
 				<CardActions>
@@ -124,10 +118,8 @@ const Cards = () => {
 					<Typography
 						variant="body2"
 						color="text.secondary">
-						Blog Content || Lorem ipsum, dolor sit amet consectetur adipisicing
-						elit. Sint dolores dicta facere sit fugiat aliquam, nulla,
-						perferendis obcaecati odio beatae laborum mollitia iusto quidem qui
-						vel alias voluptatem voluptates at!
+						Blog Content || perferendis obcaecati odio beatae laborum mollitia
+						iusto quidem qui vel alias voluptatem voluptates at!
 					</Typography>
 				</CardContent>
 				<CardActions>
@@ -156,10 +148,8 @@ const Cards = () => {
 					<Typography
 						variant="body2"
 						color="text.secondary">
-						Blog Content || Lorem ipsum, dolor sit amet consectetur adipisicing
-						elit. Sint dolores dicta facere sit fugiat aliquam, nulla,
-						perferendis obcaecati odio beatae laborum mollitia iusto quidem qui
-						vel alias voluptatem voluptates at!
+						Blog Content || perferendis obcaecati odio beatae laborum mollitia
+						iusto quidem qui vel alias voluptatem voluptates at!
 					</Typography>
 				</CardContent>
 				<CardActions>
