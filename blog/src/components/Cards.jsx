@@ -3,55 +3,175 @@ import {
 	Card,
 	CardActions,
 	CardContent,
-	CircularProgress,
-	SvgIcon,
+	CardMedia,
 	Typography,
 } from "@mui/material";
 
 const Cards = () => {
 	return (
-		<Card
-			variant="solid"
-			color="primary"
-			invertedColors>
-			<CardContent orientation="horizontal">
-				<CircularProgress
-					size="lg"
-					determinate
-					value={20}>
-					<SvgIcon>
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							fill="none"
-							viewBox="0 0 24 24"
-							strokeWidth={1.5}
-							stroke="currentColor">
-							<path
-								strokeLinecap="round"
-								strokeLinejoin="round"
-								d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"
-							/>
-						</svg>
-					</SvgIcon>
-				</CircularProgress>
+		<>
+			<Card sx={{ maxWidth: 345 }}>
+				<CardMedia
+					component="img"
+					alt="Blog Image"
+					height="140"
+					image=""
+				/>
 				<CardContent>
-					<Typography level="body-md">Gross profit</Typography>
-					<Typography level="h2">$ 432.6M</Typography>
+					<Typography
+						gutterBottom
+						variant="h5"
+						component="div">
+						Blog Title
+					</Typography>
+					<Typography
+						variant="body2"
+						color="text.secondary">
+						Blog Content || Lorem ipsum, dolor sit amet consectetur adipisicing
+						elit. Sint dolores dicta facere sit fugiat aliquam, nulla,
+						perferendis obcaecati odio beatae laborum mollitia iusto quidem qui
+						vel alias voluptatem voluptates at!
+					</Typography>
 				</CardContent>
-			</CardContent>
-			<CardActions>
-				<Button
-					variant="soft"
-					size="sm">
-					Add to Watchlist
-				</Button>
-				<Button
-					variant="solid"
-					size="sm">
-					See breakdown
-				</Button>
-			</CardActions>
-		</Card>
+				<CardActions>
+					<Button
+						size="small"
+						variant="contained"
+						fullWidth>
+						Visit
+					</Button>
+				</CardActions>
+			</Card>
+
+			<Card sx={{ maxWidth: 345 }}>
+				<CardMedia
+					component="img"
+					alt="Blog Image"
+					height="140"
+					image=""
+				/>
+				<CardContent>
+					<Typography
+						gutterBottom
+						variant="h5"
+						component="div">
+						Blog Title
+					</Typography>
+					<Typography
+						variant="body2"
+						color="text.secondary">
+						Blog Content || Lorem ipsum, dolor sit amet consectetur adipisicing
+						elit. Sint dolores dicta facere sit fugiat aliquam, nulla,
+						perferendis obcaecati odio beatae laborum mollitia iusto quidem qui
+						vel alias voluptatem voluptates at!
+					</Typography>
+				</CardContent>
+				<CardActions>
+					<Button
+						size="small"
+						variant="contained"
+						fullWidth>
+						Visit
+					</Button>
+				</CardActions>
+			</Card>
+			<Card sx={{ maxWidth: 345 }}>
+				<CardMedia
+					component="img"
+					alt="Blog Image"
+					height="140"
+					image=""
+				/>
+				<CardContent>
+					<Typography
+						gutterBottom
+						variant="h5"
+						component="div">
+						Blog Title
+					</Typography>
+					<Typography
+						variant="body2"
+						color="text.secondary">
+						Blog Content || Lorem ipsum, dolor sit amet consectetur adipisicing
+						elit. Sint dolores dicta facere sit fugiat aliquam, nulla,
+						perferendis obcaecati odio beatae laborum mollitia iusto quidem qui
+						vel alias voluptatem voluptates at!
+					</Typography>
+				</CardContent>
+				<CardActions>
+					<Button
+						size="small"
+						variant="contained"
+						fullWidth>
+						Visit
+					</Button>
+				</CardActions>
+			</Card>
+			<Card sx={{ maxWidth: 345 }}>
+				<CardMedia
+					component="img"
+					alt="Blog Image"
+					height="140"
+					image=""
+				/>
+				<CardContent>
+					<Typography
+						gutterBottom
+						variant="h5"
+						component="div">
+						Blog Title
+					</Typography>
+					<Typography
+						variant="body2"
+						color="text.secondary">
+						Blog Content || Lorem ipsum, dolor sit amet consectetur adipisicing
+						elit. Sint dolores dicta facere sit fugiat aliquam, nulla,
+						perferendis obcaecati odio beatae laborum mollitia iusto quidem qui
+						vel alias voluptatem voluptates at!
+					</Typography>
+				</CardContent>
+				<CardActions>
+					<Button
+						size="small"
+						variant="contained"
+						fullWidth>
+						Visit
+					</Button>
+				</CardActions>
+			</Card>
+			<Card sx={{ maxWidth: 345 }}>
+				<CardMedia
+					component="img"
+					alt="Blog Image"
+					height="140"
+					image=""
+				/>
+				<CardContent>
+					<Typography
+						gutterBottom
+						variant="h5"
+						component="div">
+						Blog Title
+					</Typography>
+					<Typography
+						variant="body2"
+						color="text.secondary">
+						Blog Content || Lorem ipsum, dolor sit amet consectetur adipisicing
+						elit. Sint dolores dicta facere sit fugiat aliquam, nulla,
+						perferendis obcaecati odio beatae laborum mollitia iusto quidem qui
+						vel alias voluptatem voluptates at!
+					</Typography>
+				</CardContent>
+				<CardActions>
+					<Button
+						size="small"
+						variant="contained"
+						fullWidth>
+						Visit
+					</Button>
+				</CardActions>
+			</Card>
+		</>
 	);
 };
 
