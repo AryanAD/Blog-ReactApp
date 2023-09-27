@@ -1,8 +1,24 @@
-import { Box, SpeedDial, SpeedDialAction, SpeedDialIcon } from "@mui/material";
+import { Box, IconButton, Link, styled } from "@mui/material";
+import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
 import Cards from "../components/Cards";
 import Modify from "../components/Modify";
 import ListDisplay from "../components/ListItems";
-import { FileCopyIcon, SaveIcon, PrintIcon, ShareIcon } from "@mui/icons-material";
+import { AddRounded } from "@mui/icons-material";
+
+const HtmlTooltip = styled(({ className, ...props }) => (
+	<Tooltip
+		{...props}
+		classes={{ popper: className }}
+	/>
+))(({ theme }) => ({
+	[`& .${tooltipClasses.tooltip}`]: {
+		backgroundColor: "#f5f5f9",
+		color: "rgba(0, 0, 0, 0.87)",
+		maxWidth: 220,
+		fontSize: theme.typography.pxToRem(12),
+		border: "1px solid #dadde9",
+	},
+}));
 
 const HomePage = () => {
 	const homeBG = {
@@ -41,13 +57,15 @@ const HomePage = () => {
 		width: "100%",
 	};
 
-	const actions = [
-		{ icon: <FileCopyIcon />, name: "Copy" },
-		{ icon: <SaveIcon />, name: "Save" },
-		{ icon: <PrintIcon />, name: "Print" },
-		{ icon: <ShareIcon />, name: "Share" },
-	];
-
+	const createButton = {
+		position: "fixed",
+		borderRadius: "50%",
+		bottom: "50%",
+		right: 15,
+		bgcolor: "white",
+		width: "50px",
+		height: "50px",
+	};
 	return (
 		<Box sx={homeBG}>
 			<Box sx={firstSection}>
@@ -62,20 +80,18 @@ const HomePage = () => {
 				</Box>
 			</Box>
 
-			<Box sx={{ height: 320, transform: "translateZ(0px)", flexGrow: 1 }}>
-				<SpeedDial
-					ariaLabel="SpeedDial basic example"
-					sx={{ position: "absolute", bottom: 16, right: 16 }}
-					icon={<SpeedDialIcon />}>
-					{actions.map((action) => (
-						<SpeedDialAction
-							key={action.name}
-							icon={action.icon}
-							tooltipTitle={action.name}
+			<Link href="/create">
+				<IconButton>
+					<HtmlTooltip
+						title={<h2>Add New Blog</h2>}
+						placement="left">
+						<AddRounded
+							color="black"
+							sx={createButton}
 						/>
-					))}
-				</SpeedDial>
-			</Box>
+					</HtmlTooltip>
+				</IconButton>
+			</Link>
 		</Box>
 	);
 };
