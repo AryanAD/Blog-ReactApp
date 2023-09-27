@@ -14,7 +14,7 @@ const App = () => {
 					path="/"
 					element={<HomePage />}>
 					<Route
-						path="/cards"
+						path="/cards/:id"
 						element={<Cards />}
 					/>
 				</Route>

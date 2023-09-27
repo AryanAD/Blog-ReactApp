@@ -16,9 +16,6 @@ const cardStyle = {
 	width: "70vw",
 	height: "100%",
 	borderRadius: "13px",
-	display: "flex",
-	flexDirection: "column",
-	justifyContent: "flex-end",
 };
 
 const btnStyle = {

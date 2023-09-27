@@ -16,7 +16,7 @@ const footerContainer = {
 	flexDirection: "row",
 	alignItems: "center",
 	justifyContent: "space-around",
-	margin: "30px 10px 0 10px",
+	margin: "0px 10px 0 10px",
 };
 
 const divider = {
