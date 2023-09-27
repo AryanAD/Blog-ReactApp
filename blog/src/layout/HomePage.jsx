@@ -4,7 +4,6 @@ import Modify from "../components/Modify";
 
 const HomePage = () => {
 	const homeBG = {
-		height: "100vh",
 		display: "flex",
 		flexDirection: "column",
 		justifyContent: "center",
@@ -15,7 +14,7 @@ const HomePage = () => {
 	const firstSection = {
 		marginTop: "25px",
 		width: "90vw",
-		height: "34vh",
+		height: "35vh",
 		display: "flex",
 		justifyContent: "space-around",
 		gap: "1%",
@@ -24,7 +23,6 @@ const HomePage = () => {
 	const secondSection = {
 		marginTop: "25px",
 		width: "90vw",
-		height: "30vh",
 		display: "flex",
 		justifyContent: "space-around",
 		gap: "1%",
