@@ -4,6 +4,7 @@ import HomePage from "./layout/HomePage";
 import NavBar from "./components/NavBar";
 import Footer from "./layout/Footer";
 import Cards from "./components/Cards";
+import Create from "./components/Create";
 
 const App = () => {
 	return (
@@ -18,6 +19,10 @@ const App = () => {
 						element={<Cards />}
 					/>
 				</Route>
+				<Route
+					path="/create"
+					element={<Create />}
+				/>
 			</Routes>
 			<Footer />
 		</div>
