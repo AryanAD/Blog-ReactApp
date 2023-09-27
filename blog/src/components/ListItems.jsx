@@ -9,7 +9,13 @@ import {
 const ListDisplay = () => {
 	return (
 		<List
-			sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
+			sx={{
+				width: "100%",
+				maxWidth: 360,
+				bgcolor: "#4bb7f1",
+				borderRadius: "0 13px 13px 0",
+				color: "#000",
+			}}
 			aria-label="contacts">
 			<ListItem disablePadding>
 				<ListItemButton>

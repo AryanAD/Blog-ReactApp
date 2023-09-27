@@ -26,8 +26,17 @@ const HomePage = () => {
 		width: "90vw",
 		display: "flex",
 		flexDirection: "row",
+		padding: 0,
 		justifyContent: "space-around",
-		gap: "1%",
+	};
+
+	const leftSecond = {
+		display: "flex",
+		flexDirection: "column",
+	};
+	const rightSecond = {
+		display: "flex",
+		width: "100%",
 	};
 
 	return (
@@ -36,8 +45,12 @@ const HomePage = () => {
 				<Cards />
 			</Box>
 			<Box sx={secondSection}>
-				<Modify />
-				<ListDisplay />
+				<Box sx={leftSecond}>
+					<Modify />
+				</Box>
+				<Box sx={rightSecond}>
+					<ListDisplay />
+				</Box>
 			</Box>
 		</Box>
 	);
