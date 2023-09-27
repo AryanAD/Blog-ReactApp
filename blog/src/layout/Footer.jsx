@@ -1,4 +1,3 @@
-import React from "react";
 import { Box, Link } from "@mui/material";
 import EditNoteIcon from "@mui/icons-material/EditNote";
 import FacebookIcon from "@mui/icons-material/Facebook";
@@ -7,7 +6,6 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 const footerStyles = {
-	position: "fixed",
 	left: 0,
 	bottom: 0,
 	width: "100vw",

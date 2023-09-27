@@ -1,8 +1,9 @@
 import "./App.css";
 import { Route, Routes } from "react-router";
-import Home from "./layout/Home";
+import HomePage from "./layout/HomePage";
 import NavBar from "./components/NavBar";
 import Footer from "./layout/Footer";
+import Cards from "./components/Cards";
 
 const App = () => {
 	return (
@@ -11,7 +12,12 @@ const App = () => {
 			<Routes>
 				<Route
 					path="/"
-					element={<Home />}></Route>
+					element={<HomePage />}>
+					<Route
+						path="/cards"
+						element={<Cards />}
+					/>
+				</Route>
 			</Routes>
 			<Footer />
 		</div>
