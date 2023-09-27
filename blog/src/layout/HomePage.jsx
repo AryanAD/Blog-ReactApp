@@ -12,7 +12,7 @@ const HomePage = () => {
 	};
 
 	const firstSection = {
-		marginTop: "25px",
+		margin: "25px auto 25px",
 		width: "90vw",
 		height: "35vh",
 		display: "flex",
@@ -21,7 +21,7 @@ const HomePage = () => {
 	};
 
 	const secondSection = {
-		marginTop: "25px",
+		margin: "auto auto 25px",
 		width: "90vw",
 		display: "flex",
 		justifyContent: "space-around",
