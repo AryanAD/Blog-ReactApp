@@ -15,7 +15,8 @@ import DeleteForeverRoundedIcon from "@mui/icons-material/DeleteForeverRounded";
 const cardStyle = {
 	width: "70vw",
 	height: "100%",
-	borderRadius: "13px 0 0 13px",
+	borderRadius: "11px",
+	boxShadow: "0 6px 12px rgba(0, 0, 0, 0.3)",
 };
 
 const btnStyle = {

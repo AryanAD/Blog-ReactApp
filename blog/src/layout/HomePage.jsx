@@ -26,12 +26,13 @@ const HomePage = () => {
 		width: "90vw",
 		display: "flex",
 		flexDirection: "row",
-		padding: 0,
-		justifyContent: "space-around",
+		justifyContent: "center",
+		gap: "1%",
 	};
 
 	const leftSecond = {
 		display: "flex",
+		width: "75vw",
 		flexDirection: "column",
 	};
 	const rightSecond = {
