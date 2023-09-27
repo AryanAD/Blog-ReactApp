@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Container, Link, Toolbar, Typography } from "@mui/material";
+import { Box, Link } from "@mui/material";
 import EditNoteIcon from "@mui/icons-material/EditNote";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
@@ -21,7 +21,7 @@ const footerContainer = {
 };
 
 const divider = {
-	borderLeft: "6px solid tomato",
+	borderLeft: "6px solid #1976D2",
 	borderRadius: "3px",
 	height: "200px",
 	position: "absolute",
@@ -30,79 +30,120 @@ const divider = {
 };
 const left = { width: "40vw" };
 
-const socialLinksStyles = {
+const right = {
 	display: "flex",
+	flexFlow: "column",
+	height: "25vh",
+	justifyContent: "space-evenly",
 	alignItems: "center",
-	justifyContent: "flex-end",
-	marginTop: "16px",
+	width: "25vw",
+	paddingLeft: "20px",
 };
 
-const centerStyles = {
+const contactInfo = {
 	display: "flex",
+	justifyContent: "flex-start",
 	alignItems: "center",
+	height: "25vh",
+	width: "25vw",
 };
 
-const linkTextStyles = {
-	display: "flex",
-	color: "white",
-	textDecoration: "none",
+const align = {
+	color: "#1976D2",
 };
 
 const Footer = () => {
 	return (
 		<footer style={footerStyles}>
-			<div style={footerContainer}>
-				<div style={divider} />
-				<div style={left}>
-					<h1>Aryan's Portfolio</h1>
-					<p>
-						A portfolio website of Aryan Adhikari that contains all the
-						information one requires about Aryan to hire him.
+			<Box sx={footerContainer}>
+				<Box sx={divider} />
+				<Box sx={left}>
+					<h1
+						style={{
+							color: "#1976D2",
+							padding: "10px",
+							margin: "20px",
+							fontSiize: "4.2rem",
+							fontFamily: "monospace",
+						}}>
+						<EditNoteIcon />
+						BLOG APP
+					</h1>
+					<p
+						style={{
+							borderLeft: "3px solid #1976D2",
+							borderRadius: "2px",
+							paddingLeft: "10px",
+							fontFamily: "monospace",
+							fontSize: "14px",
+							color: "#333",
+							margin: "0 30px 20px",
+						}}>
+						REACT BLOG APP | Lorem ipsum dolor sit amet consectetur adipisicing
+						elit. Mollitia, omnis dolorem cumque eligendi ex ut sapiente
+						temporibus aliquam id fuga corrupti dignissimos. Optio neque,
+						maiores similique totam harum quas expedita?
 					</p>
-				</div>
-				<div style="right">
-					<div style="contactInfo">
-						<p>
-							<i style="fa-solid fa-globe"></i>
-							<div style="align">&nbsp;Website:&nbsp;</div>
-							<a
-								href="https://aryanad.github.io/portfolio"
+				</Box>
+				<Box sx={right}>
+					<Box sx={contactInfo}>
+						<p
+							style={{
+								display: "flex",
+								alignItems: "center",
+								gap: "8px",
+							}}>
+							<FacebookIcon />
+							<Link
+								href="https://www.facebook.com"
 								target="_blank">
-								aryanad.github.io/portfolio
-							</a>
+								Facebook
+							</Link>
 						</p>
-					</div>
-					<div style="contactInfo">
-						<p>
-							<i style="fa-solid fa-envelope"></i>
-							<div style="align">&nbsp;Email:&nbsp;</div>
-							<a
-								href="mailto:aryanhohai@gmail.com?subject=Portfolio Website"
+					</Box>
+					<Box sx={contactInfo}>
+						<p
+							style={{
+								display: "flex",
+								alignItems: "center",
+								gap: "8px",
+							}}>
+							<InstagramIcon />
+							<Link
+								href="https://www.instagram.com"
 								target="_blank">
-								aryanhohai@gmail.com
-							</a>
+								Instagram
+							</Link>
 						</p>
-					</div>
-					<div style="contactInfo">
-						<p>
-							<i style="fa-solid fa-phone"></i>
-							<div style="align">&nbsp;Phone no:&nbsp;</div>
-							<a href="tel:9814273753">+977 9814273753</a>
+					</Box>
+					<Box sx={contactInfo}>
+						<p
+							style={{
+								display: "flex",
+								alignItems: "center",
+								gap: "8px",
+							}}>
+							<TwitterIcon />
+							<Link href="https://www.twitter.com">Twitter</Link>
 						</p>
-					</div>
-					<div style="contactInfo">
-						<p>
-							<i style="fa-brands fa-github"></i>
-							<div style="align">&nbsp;Github:&nbsp;</div>
-							<a
-								href="https://www.github.com/AryanAD"
+					</Box>
+					<Box sx={contactInfo}>
+						<p
+							style={{
+								display: "flex",
+								alignItems: "center",
+								gap: "8px",
+							}}>
+							<LinkedInIcon />
+							<Link
+								href="https://www.linkedin.com"
 								target="_blank">
-								github.com/AryanAD
-							</a>
+								LinkedIn
+							</Link>
 						</p>
-					</div>
-				</div>
-			</div>
+					</Box>
+				</Box>
+			</Box>
 		</footer>
 	);
 };
