@@ -18,13 +18,13 @@ const App = () => {
 						path="/cards/:id"
 						element={<Cards />}
 					/>
+					<Route element={<Footer />} />
 				</Route>
 				<Route
 					path="/create"
 					element={<Create />}
 				/>
 			</Routes>
-			<Footer />
 		</div>
 	);
 };
