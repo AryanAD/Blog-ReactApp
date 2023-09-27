@@ -7,8 +7,10 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 const footerStyles = {
+	position: "fixed",
+	left: 0,
+	bottom: 0,
 	width: "100vw",
-	height: "40vh",
 	background: "whitesmoke",
 };
 const footerContainer = {
@@ -16,7 +18,6 @@ const footerContainer = {
 	flexDirection: "row",
 	alignItems: "center",
 	justifyContent: "space-around",
-	height: "40vh",
 	margin: "30px 10px 0 10px",
 };
 
@@ -48,8 +49,9 @@ const contactInfo = {
 	width: "25vw",
 };
 
-const align = {
-	color: "#1976D2",
+const link = {
+	textDecoration: "none",
+	color: "black",
 };
 
 const Footer = () => {
@@ -95,6 +97,7 @@ const Footer = () => {
 							}}>
 							<FacebookIcon />
 							<Link
+								sx={link}
 								href="https://www.facebook.com"
 								target="_blank">
 								Facebook
@@ -110,6 +113,7 @@ const Footer = () => {
 							}}>
 							<InstagramIcon />
 							<Link
+								sx={link}
 								href="https://www.instagram.com"
 								target="_blank">
 								Instagram
@@ -124,7 +128,11 @@ const Footer = () => {
 								gap: "8px",
 							}}>
 							<TwitterIcon />
-							<Link href="https://www.twitter.com">Twitter</Link>
+							<Link
+								sx={link}
+								href="https://www.twitter.com">
+								Twitter
+							</Link>
 						</p>
 					</Box>
 					<Box sx={contactInfo}>
@@ -136,6 +144,7 @@ const Footer = () => {
 							}}>
 							<LinkedInIcon />
 							<Link
+								sx={link}
 								href="https://www.linkedin.com"
 								target="_blank">
 								LinkedIn
