@@ -8,10 +8,10 @@ import {
 	Typography,
 } from "@mui/material";
 import axios from "axios";
-import { Navigate } from "react-router";
+import { useNavigate } from "react-router";
 
 const Create = () => {
-	const nav = Navigate;
+	const nav = useNavigate();
 	const [title, setTitle] = useState("");
 	const [description, setDescription] = useState("");
 	const [file, setFile] = useState(null);
@@ -36,7 +36,8 @@ const Create = () => {
 				setDescription("");
 				setFile(null);
 				setErrorMessage("");
-				alert("Blog created successfully!");
+				// alert("Blog created successfully!");
+				nav("/");
 			} else {
 				setErrorMessage(response.data.message);
 			}
