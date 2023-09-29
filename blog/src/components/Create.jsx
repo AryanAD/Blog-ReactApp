@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import axios from "axios";
 import { useNavigate } from "react-router";
+import { toast } from "react-toastify";
 
 const Create = () => {
 	const nav = useNavigate();
@@ -32,11 +33,7 @@ const Create = () => {
 			);
 
 			if (response.status === 200) {
-				setTitle("");
-				setDescription("");
-				setFile(null);
-				setErrorMessage("");
-				// alert("Blog created successfully!");
+				toast.success("Successfully Created Blog!");
 				nav("/");
 			} else {
 				setErrorMessage(response.data.message);
