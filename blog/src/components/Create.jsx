@@ -1,12 +1,8 @@
 import {
 	Box,
 	Button,
-	Checkbox,
 	Container,
 	CssBaseline,
-	FormControlLabel,
-	Grid,
-	Link,
 	TextField,
 	Typography,
 } from "@mui/material";
@@ -35,27 +31,28 @@ const Create = () => {
 					sx={{ mt: 1 }}>
 					<TextField
 						id="standard-basic"
-						variant="standard"
+						variant="outlined"
 						margin="normal"
 						fullWidth
 						label="Blog Title"
 						type="text"
 					/>
 					<TextField
+						rows={8}
+						maxRows={20}
+						multiline="true"
 						id="standard-basic"
-						variant="standard"
+						variant="outlined"
 						margin="normal"
 						fullWidth
 						label="Description"
 						type="text"
 					/>
 					<TextField
-						id="standard-basic"
 						variant="standard"
 						margin="normal"
 						fullWidth
-						label="Add Cover Image"
-						type="image"
+						type="file"
 					/>
 
 					<Button
