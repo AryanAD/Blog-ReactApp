@@ -33,9 +33,9 @@ const HomePage = () => {
 	const firstSection = {
 		margin: "25px auto 25px",
 		width: "90vw",
-		height: "35vh",
+		height: "30vh",
 		display: "flex",
-		justifyContent: "space-around",
+		// justifyContent: "space-around",
 		gap: "1%",
 	};
 
