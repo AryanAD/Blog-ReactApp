@@ -1,8 +1,10 @@
 import { List, ListItem, ListItemButton, ListItemText } from "@mui/material";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router";
 
 const ListBlogs = () => {
+	const navigate = useNavigate();
 	const [myData, setMyData] = useState([]);
 
 	const fetchMyData = async () => {
@@ -34,12 +36,16 @@ const ListBlogs = () => {
 				color: "#000",
 			}}>
 			{myData.map((data) => {
+				console.log(data);
 				return (
 					<ListItem
 						sx={{ borderBottom: "1px solid gray" }}
 						key={data.id}
 						disablePadding>
-						<ListItemButton>
+						<ListItemButton
+							onClick={() => {
+								navigate(`/blogs/${data._id}`, {});
+							}}>
 							<ListItemText primary={data.title}></ListItemText>
 						</ListItemButton>
 					</ListItem>

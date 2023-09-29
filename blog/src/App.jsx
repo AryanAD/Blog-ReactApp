@@ -1,19 +1,16 @@
-import "./App.css";
-// import {  } from "react-router";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "./layout/HomePage";
 import NavBar from "./components/NavBar";
-import Footer from "./layout/Footer";
 import Cards from "./components/Cards";
 import Create from "./components/Create";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import BlogDisplay from "./components/BlogDisplay";
 
 const App = () => {
 	return (
 		<div className="App">
 			<BrowserRouter>
-				{/* <ToastContainer /> */}
 				<ToastContainer
 					position="top-right"
 					autoClose={5000}
@@ -31,15 +28,18 @@ const App = () => {
 				<Routes>
 					<Route
 						path="/"
-						element={<HomePage />}>
-						<Route
-							path="/cards/:id"
-							element={<Cards />}
-						/>
-						<Route element={<Footer />} />
-					</Route>
+						element={<HomePage />}
+					/>
 					<Route
-						path="/create"
+						path="cards/:id"
+						element={<Cards />}
+					/>
+					<Route
+						path="blogs/:id"
+						element={<BlogDisplay />}
+					/>
+					<Route
+						path="create"
 						element={<Create />}
 					/>
 				</Routes>
