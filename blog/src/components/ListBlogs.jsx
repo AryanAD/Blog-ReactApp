@@ -1,4 +1,11 @@
-import { List, ListItem, ListItemButton, ListItemText } from "@mui/material";
+import {
+	Box,
+	List,
+	ListItem,
+	ListItemButton,
+	ListItemText,
+	Typography,
+} from "@mui/material";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
@@ -20,8 +27,6 @@ const ListBlogs = () => {
 		fetchMyData();
 	}, []);
 
-	console.log(myData);
-
 	return (
 		<List
 			sx={{
@@ -35,22 +40,33 @@ const ListBlogs = () => {
 				boxShadow: "0 6px 12px rgba(0, 0, 0, 0.3)",
 				color: "#000",
 			}}>
-			{myData.map((data) => {
-				console.log(data);
-				return (
-					<ListItem
-						sx={{ borderBottom: "1px solid gray" }}
-						key={data.id}
-						disablePadding>
-						<ListItemButton
-							onClick={() => {
-								navigate(`/blogs/${data._id}`, {});
-							}}>
-							<ListItemText primary={data.title}></ListItemText>
-						</ListItemButton>
-					</ListItem>
-				);
-			})}
+			{myData.length === 0 ? (
+				<Box
+					sx={{
+						height: "100%",
+						display: "flex",
+						alignItems: "center",
+						justifyContent: "center",
+					}}>
+					<Typography variant="h5">No Blogs Found</Typography>
+				</Box>
+			) : (
+				myData.map((data) => {
+					return (
+						<ListItem
+							sx={{ borderBottom: "1px solid gray" }}
+							key={data.id}
+							disablePadding>
+							<ListItemButton
+								onClick={() => {
+									navigate(`/blogs/${data._id}`, {});
+								}}>
+								<ListItemText primary={data.title}></ListItemText>
+							</ListItemButton>
+						</ListItem>
+					);
+				})
+			)}
 		</List>
 	);
 };
