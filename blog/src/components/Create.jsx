@@ -61,7 +61,7 @@ const Create = () => {
 					variant="h5">
 					Create new Blog
 				</Typography>
-				<form onSubmit={(handleFormSubmit, nav("/"))}>
+				<form onSubmit={handleFormSubmit}>
 					<TextField
 						variant="outlined"
 						margin="normal"
