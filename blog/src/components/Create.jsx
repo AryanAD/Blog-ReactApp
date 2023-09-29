@@ -9,12 +9,11 @@ import {
 
 const Create = () => {
 	return (
-		<Container
-			component="main"
-			maxWidth="xs">
+		<Container component="main">
 			<CssBaseline />
 			<Box
 				sx={{
+					width: "1200px",
 					marginTop: 8,
 					display: "flex",
 					flexDirection: "column",
@@ -22,7 +21,7 @@ const Create = () => {
 				}}>
 				<Typography
 					component="h1"
-					variant="h5">
+					variant="h4">
 					Create new Blog
 				</Typography>
 				<Box

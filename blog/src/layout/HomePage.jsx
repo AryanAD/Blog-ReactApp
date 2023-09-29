@@ -4,6 +4,7 @@ import Cards from "../components/Cards";
 import Modify from "../components/Modify";
 import ListDisplay from "../components/ListItems";
 import { AddRounded } from "@mui/icons-material";
+import Footer from "./Footer";
 
 const HtmlTooltip = styled(({ className, ...props }) => (
 	<Tooltip
@@ -92,6 +93,7 @@ const HomePage = () => {
 					</HtmlTooltip>
 				</IconButton>
 			</Link>
+			<Footer />
 		</Box>
 	);
 };
