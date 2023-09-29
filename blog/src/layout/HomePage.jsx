@@ -2,7 +2,7 @@ import { Box, IconButton, Link, styled } from "@mui/material";
 import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
 import Cards from "../components/Cards";
 import Modify from "../components/Modify";
-import ListDisplay from "../components/ListItems";
+import ListDisplay from "../components/ListBlogs";
 import { AddRounded } from "@mui/icons-material";
 import Footer from "./Footer";
 

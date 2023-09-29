@@ -6,7 +6,7 @@ import {
 	ListItemText,
 } from "@mui/material";
 
-const ListDisplay = () => {
+const ListBlogs = () => {
 	return (
 		<List
 			sx={{
@@ -36,4 +36,4 @@ const ListDisplay = () => {
 	);
 };
 
-export default ListDisplay;
+export default ListBlogs;
