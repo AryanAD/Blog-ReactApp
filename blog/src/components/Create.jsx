@@ -44,7 +44,6 @@ const Create = () => {
 			console.error(error);
 			setErrorMessage("An error occurred while creating the blog.");
 		}
-		nav("/");
 	};
 
 	return (
@@ -62,7 +61,7 @@ const Create = () => {
 					variant="h5">
 					Create new Blog
 				</Typography>
-				<form onSubmit={handleFormSubmit}>
+				<form onSubmit={(handleFormSubmit, nav("/"))}>
 					<TextField
 						variant="outlined"
 						margin="normal"
