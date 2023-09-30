@@ -65,6 +65,10 @@ const Modify = () => {
 		}
 	};
 
+	const handleEdit = (blogId) => {
+		navigate(`/edit-blog/${blogId}`);
+	};
+
 	return (
 		<Box>
 			{myData.length === 0 ? (
@@ -127,6 +131,7 @@ const Modify = () => {
 									</Button>
 
 									<Button
+										onClick={() => handleEdit(data.id)}
 										sx={btnStyle}
 										variant="contained"
 										color="success"
