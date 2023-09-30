@@ -54,66 +54,69 @@ const Modify = () => {
 
 	return (
 		<Box>
-			{myData.slice(0, 1).map((data) => {
-				return (
-					<Card
-						key={data.id}
-						sx={cardStyle}>
-						<CardMedia
-							component="img"
-							alt="Blog Image"
-							height="400"
-							image={data.image}
-						/>
-						<CardContent>
-							<Typography
-								gutterBottom
-								variant="h5"
-								component="Box">
-								{data.title}
-								<hr />
-							</Typography>
-							<Typography
-								variant="body2"
-								color="text.secondary">
-								{limitText(data.description, 280)}
-							</Typography>
-						</CardContent>
-						<CardActions
-							sx={{
-								display: "flex",
-								justifyContent: "space-around",
-							}}>
-							<Button
-								onClick={() => {
-									navigate(`/blogs/${data._id}`, {});
-								}}
-								sx={btnStyle}
-								variant="contained"
-								color="info"
-								key="one">
-								<OpenInNewRoundedIcon /> Visit
-							</Button>
+			{myData
+				.map((data) => {
+					return (
+						<Card
+							key={data.id}
+							sx={cardStyle}>
+							<CardMedia
+								component="img"
+								alt="Blog Image"
+								height="400"
+								image={data.image}
+							/>
+							<CardContent>
+								<Typography
+									gutterBottom
+									variant="h5"
+									component="Box">
+									{data.title}
+									<hr />
+								</Typography>
+								<Typography
+									variant="body2"
+									color="text.secondary">
+									{limitText(data.description, 280)}
+								</Typography>
+							</CardContent>
+							<CardActions
+								sx={{
+									display: "flex",
+									justifyContent: "space-around",
+								}}>
+								<Button
+									onClick={() => {
+										navigate(`/blogs/${data._id}`, {});
+									}}
+									sx={btnStyle}
+									variant="contained"
+									color="info"
+									key="one">
+									<OpenInNewRoundedIcon /> Visit
+								</Button>
 
-							<Button
-								sx={btnStyle}
-								variant="contained"
-								color="success"
-								key="two">
-								<AddRoundedIcon /> Edit
-							</Button>
+								<Button
+									sx={btnStyle}
+									variant="contained"
+									color="success"
+									key="two">
+									<AddRoundedIcon /> Edit
+								</Button>
 
-							<Button
-								sx={btnStyle}
-								variant="contained"
-								color="error"
-								key="three">
-								<DeleteForeverRoundedIcon /> Delete
-							</Button>
-						</CardActions>
-					</Card>
-				);
-			})}
+								<Button
+									sx={btnStyle}
+									variant="contained"
+									color="error"
+									key="three">
+									<DeleteForeverRoundedIcon /> Delete
+								</Button>
+							</CardActions>
+						</Card>
+					);
+				})
+				.reverse()
+				.slice(0, 1)}
 		</Box>
 	);
 };
