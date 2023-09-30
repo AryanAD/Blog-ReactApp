@@ -13,6 +13,7 @@ import AddRoundedIcon from "@mui/icons-material/AddRounded";
 import DeleteForeverRoundedIcon from "@mui/icons-material/DeleteForeverRounded";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const cardStyle = {
 	width: "70vw",
@@ -36,6 +37,7 @@ const limitText = (text, limit) => {
 	return text;
 };
 const Modify = () => {
+	const navigate = useNavigate();
 	const [myData, setMyData] = useState([]);
 
 	const fetchMyData = async () => {
@@ -83,6 +85,9 @@ const Modify = () => {
 								justifyContent: "space-around",
 							}}>
 							<Button
+								onClick={() => {
+									navigate(`/blogs/${data._id}`, {});
+								}}
 								sx={btnStyle}
 								variant="contained"
 								color="info"

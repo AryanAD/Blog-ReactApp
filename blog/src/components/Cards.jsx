@@ -30,7 +30,7 @@ const Cards = () => {
 		whiteSpace: "nowrap",
 		overflow: "hidden",
 		textOverflow: "ellipsis",
-		width: "250px",
+		maxWidth: "250px",
 	};
 	const limitLength = (text, limit) => {
 		if (text.length > limit) {
@@ -45,7 +45,7 @@ const Cards = () => {
 				<Card
 					sx={{
 						borderRadius: "13px",
-						width: "100%",
+						maxWidth: "250px",
 						bgcolor: "#4bb7f1",
 						display: "flex",
 						justifyContent: "center",
