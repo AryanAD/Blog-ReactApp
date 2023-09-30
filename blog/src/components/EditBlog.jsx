@@ -25,7 +25,6 @@ const EditBlog = () => {
 			try {
 				const response = await axios.get(`http://localhost:3000/blogs/${id}`);
 				const blogData = response.data;
-
 				setTitle(blogData.title);
 				setDescription(blogData.description);
 			} catch (error) {

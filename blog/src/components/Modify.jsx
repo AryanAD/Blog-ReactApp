@@ -131,7 +131,7 @@ const Modify = () => {
 									</Button>
 
 									<Button
-										onClick={() => handleEdit(data.id)}
+										onClick={() => handleEdit(data._id)}
 										sx={btnStyle}
 										variant="contained"
 										color="success"
