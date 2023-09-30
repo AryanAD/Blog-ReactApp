@@ -28,6 +28,13 @@ const btnStyle = {
 	gap: "10px",
 	fontSize: "16px",
 };
+
+const limitText = (text, limit) => {
+	if (text.length > limit) {
+		return text.substring(0, limit) + "...";
+	}
+	return text;
+};
 const Modify = () => {
 	const [myData, setMyData] = useState([]);
 
@@ -45,7 +52,7 @@ const Modify = () => {
 
 	return (
 		<Box>
-			{myData.map((data) => {
+			{myData.slice(0, 1).map((data) => {
 				return (
 					<Card
 						key={data.id}
@@ -67,7 +74,7 @@ const Modify = () => {
 							<Typography
 								variant="body2"
 								color="text.secondary">
-								{data.description}
+								{limitText(data.description, 280)}
 							</Typography>
 						</CardContent>
 						<CardActions

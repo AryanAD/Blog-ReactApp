@@ -32,6 +32,12 @@ const Cards = () => {
 		textOverflow: "ellipsis",
 		width: "250px",
 	};
+	const limitLength = (text, limit) => {
+		if (text.length > limit) {
+			return text.substring(0, limit) + "...";
+		}
+		return text;
+	};
 
 	return (
 		<>
@@ -73,10 +79,9 @@ const Cards = () => {
 										{data.title}
 									</Typography>
 									<Typography
-										sx={overflowWrap}
 										variant="body2"
 										color="text.secondary">
-										{data.description}
+										{limitLength(data.description, 40)}
 									</Typography>
 								</CardContent>
 								<CardActions>
