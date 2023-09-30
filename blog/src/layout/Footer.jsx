@@ -63,7 +63,7 @@ const Footer = () => {
 							color: "#1976D2",
 							padding: "10px",
 							margin: "20px",
-							fontSiize: "4.2rem",
+							fontSize: "2rem",
 							fontFamily: "monospace",
 						}}>
 						<EditNoteIcon />
@@ -79,10 +79,11 @@ const Footer = () => {
 							color: "#333",
 							margin: "0 30px 20px",
 						}}>
-						REACT BLOG APP | Lorem ipsum dolor sit amet consectetur adipisicing
-						elit. Mollitia, omnis dolorem cumque eligendi ex ut sapiente
-						temporibus aliquam id fuga corrupti dignissimos. Optio neque,
-						maiores similique totam harum quas expedita?
+						A Blog Web Application made using React.js. This Web App is made for
+						the author of the blog and not the audience. Hence, the layout and
+						the overall design of this BlogApp is not what we see in a Blog
+						website we usually visit. This BlogApp allows the author to Create,
+						Edit, Preview and Delete the Blogs.
 					</p>
 				</Box>
 				<Box sx={right}>
