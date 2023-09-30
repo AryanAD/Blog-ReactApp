@@ -84,7 +84,7 @@ const Cards = () => {
 										sx={{ marginTop: 1, marginBottom: 0 }}
 										variant="body2"
 										color="text.secondary">
-										{limitLength(data.description, 70)}
+										{limitLength(data.description, 60)}
 									</Typography>
 								</CardContent>
 								<CardActions>
