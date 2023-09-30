@@ -28,7 +28,13 @@ const BlogDisplay = () => {
 
 	return (
 		<Container
-			sx={{ marginTop: 2, marginBottom: 2, border: "2px solid gray" }}
+			sx={{
+				marginTop: 2,
+				marginBottom: 2,
+				border: "2px solid gray",
+				borderRadius: "9px",
+				boxShadow: "0 6px 24px rgba(0, 0, 0, 0.3)",
+			}}
 			component="main">
 			<Box sx={{ marginTop: 2, marginBottom: 2, textAlign: "center" }}>
 				<img
@@ -44,7 +50,7 @@ const BlogDisplay = () => {
 			<hr />
 			<Box sx={{ marginTop: 2, height: "100%" }}>
 				<Typography
-					style={{ textAlign: "justify" }}
+					style={{ textAlign: "justify", paddingBottom: 10 }}
 					variant="body1">
 					&emsp;&emsp;
 					{blogData.description}

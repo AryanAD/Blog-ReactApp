@@ -31,6 +31,7 @@ const Cards = () => {
 		overflow: "hidden",
 		textOverflow: "ellipsis",
 		maxWidth: "300px",
+		marginBottom: 1,
 	};
 	const limitLength = (text, limit) => {
 		if (text.length > limit) {
@@ -67,7 +68,7 @@ const Cards = () => {
 								<CardMedia
 									component="img"
 									alt="Blog Image"
-									height="140"
+									height="160"
 									image={data.image}
 								/>
 								<CardContent>
@@ -78,10 +79,12 @@ const Cards = () => {
 										component="div">
 										{data.title}
 									</Typography>
+									<hr />
 									<Typography
+										sx={{ marginTop: 1, marginBottom: 0 }}
 										variant="body2"
 										color="text.secondary">
-										{limitLength(data.description, 95)}
+										{limitLength(data.description, 80)}
 									</Typography>
 								</CardContent>
 								<CardActions>

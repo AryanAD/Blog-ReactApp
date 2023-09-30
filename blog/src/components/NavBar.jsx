@@ -12,9 +12,16 @@ const NavBar = () => {
 		<AppBar position="static">
 			<Container maxWidth="xl">
 				<Toolbar disableGutters>
-					<EditNoteIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
+					<EditNoteIcon
+						variant="h4"
+						sx={{
+							fontSize: "2.8rem",
+							display: { xs: "none", md: "flex" },
+							mr: 1,
+						}}
+					/>
 					<Typography
-						variant="h6"
+						variant="h4"
 						noWrap
 						component="a"
 						href="/"

@@ -33,7 +33,7 @@ const HomePage = () => {
 	const firstSection = {
 		margin: "25px auto 25px",
 		maxWidth: "90vw",
-		maxHeight: "40vh",
+		maxHeight: "35vh",
 		display: "flex",
 		// justifyContent: "space-around",
 		gap: "1%",
