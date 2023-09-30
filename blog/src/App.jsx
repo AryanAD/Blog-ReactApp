@@ -6,6 +6,7 @@ import Create from "./components/Create";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import BlogDisplay from "./components/BlogDisplay";
+import EditBlog from "./components/EditBlog";
 
 const App = () => {
 	return (
@@ -41,6 +42,10 @@ const App = () => {
 					<Route
 						path="create"
 						element={<Create />}
+					/>
+					<Route
+						path="edit-blogs/:id"
+						element={<EditBlog />}
 					/>
 				</Routes>
 			</BrowserRouter>

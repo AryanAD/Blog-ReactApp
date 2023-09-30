@@ -53,20 +53,20 @@ const Modify = () => {
 		fetchMyData();
 	}, []);
 
-	const handleDelete = async (blogId) => {
+	const handleDelete = async (id) => {
 		try {
-			await axios.delete(`http://localhost:3000/blogs/${blogId}`);
+			await axios.delete(`http://localhost:3000/blogs/${id}`);
 
-			setMyData((prevData) => prevData.filter((blog) => blog.id !== blogId));
+			setMyData((prevData) => prevData.filter((blog) => blog.id !== id));
 			window.location.reload();
-			console.log(`Blog with ID ${blogId} deleted successfully.`);
+			console.log(`Blog with ID ${id} deleted successfully.`);
 		} catch (error) {
-			console.error(`Error deleting blog with ID ${blogId}:`, error);
+			console.error(`Error deleting blog with ID ${id}:`, error);
 		}
 	};
 
-	const handleEdit = (blogId) => {
-		navigate(`/edit-blog/${blogId}`);
+	const handleEdit = (id) => {
+		navigate(`/edit-blogs/${id}`);
 	};
 
 	return (
