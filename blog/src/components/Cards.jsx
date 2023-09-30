@@ -45,15 +45,16 @@ const Cards = () => {
 				<Card
 					sx={{
 						borderRadius: "13px",
-						minWidth: "250px",
-						maxWidth: "250px",
+						width: 1750,
+						height: "30vh",
 						bgcolor: "#4bb7f1",
 						display: "flex",
 						justifyContent: "center",
 						alignItems: "center",
+						boxShadow: "0 6px 12px rgba(0, 0, 0, 0.3)",
 					}}>
 					<CardContent>
-						<Typography variant="h4">No Blog Data Found</Typography>
+						<Typography variant="h4">No Blogs Found</Typography>
 					</CardContent>
 				</Card>
 			) : (

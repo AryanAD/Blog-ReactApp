@@ -36,6 +36,7 @@ const limitText = (text, limit) => {
 	}
 	return text;
 };
+
 const Modify = () => {
 	const navigate = useNavigate();
 	const [myData, setMyData] = useState([]);
@@ -52,71 +53,102 @@ const Modify = () => {
 		fetchMyData();
 	}, []);
 
+	const handleDelete = async (blogId) => {
+		try {
+			await axios.delete(`http://localhost:3000/blogs/${blogId}`);
+
+			setMyData((prevData) => prevData.filter((blog) => blog.id !== blogId));
+			window.location.reload();
+			console.log(`Blog with ID ${blogId} deleted successfully.`);
+		} catch (error) {
+			console.error(`Error deleting blog with ID ${blogId}:`, error);
+		}
+	};
+
 	return (
 		<Box>
-			{myData
-				.map((data) => {
-					return (
-						<Card
-							key={data.id}
-							sx={cardStyle}>
-							<CardMedia
-								component="img"
-								alt="Blog Image"
-								height="400"
-								image={data.image}
-							/>
-							<CardContent>
-								<Typography
-									gutterBottom
-									variant="h5"
-									component="Box">
-									{data.title}
-									<hr />
-								</Typography>
-								<Typography
-									variant="body2"
-									color="text.secondary">
-									{limitText(data.description, 280)}
-								</Typography>
-							</CardContent>
-							<CardActions
-								sx={{
-									display: "flex",
-									justifyContent: "space-around",
-								}}>
-								<Button
-									onClick={() => {
-										navigate(`/blogs/${data._id}`, {});
-									}}
-									sx={btnStyle}
-									variant="contained"
-									color="info"
-									key="one">
-									<OpenInNewRoundedIcon /> Visit
-								</Button>
+			{myData.length === 0 ? (
+				<Card
+					sx={{
+						borderRadius: "13px",
+						width: 1350,
+						height: 546,
+						bgcolor: "#4bb7f1",
+						display: "flex",
+						justifyContent: "center",
+						alignItems: "center",
+						boxShadow: "0 6px 12px rgba(0, 0, 0, 0.3)",
+					}}>
+					<CardContent>
+						<Typography variant="h3">No Blogs Found</Typography>
+					</CardContent>
+				</Card>
+			) : (
+				myData
+					.map((data) => {
+						return (
+							<Card
+								key={data.id}
+								sx={cardStyle}>
+								<CardMedia
+									component="img"
+									alt="Blog Image"
+									height="400"
+									image={data.image}
+								/>
+								<CardContent>
+									<Typography
+										gutterBottom
+										variant="h5"
+										component="Box">
+										{data.title}
+										<hr />
+									</Typography>
+									<Typography
+										variant="body2"
+										color="text.secondary">
+										{limitText(data.description, 280)}
+									</Typography>
+								</CardContent>
+								<CardActions
+									sx={{
+										display: "flex",
+										justifyContent: "space-around",
+									}}>
+									<Button
+										onClick={() => {
+											navigate(`/blogs/${data._id}`, {});
+										}}
+										sx={btnStyle}
+										variant="contained"
+										color="info"
+										key="one">
+										<OpenInNewRoundedIcon /> Visit
+									</Button>
 
-								<Button
-									sx={btnStyle}
-									variant="contained"
-									color="success"
-									key="two">
-									<AddRoundedIcon /> Edit
-								</Button>
+									<Button
+										sx={btnStyle}
+										variant="contained"
+										color="success"
+										key="two">
+										<AddRoundedIcon /> Edit
+									</Button>
 
-								<Button
-									sx={btnStyle}
-									variant="contained"
-									color="error"
-									key="three">
-									<DeleteForeverRoundedIcon /> Delete
-								</Button>
-							</CardActions>
-						</Card>
-					);
-				})
-				.reverse()
-				.slice(0, 1)}
+									<Button
+										onClick={() => handleDelete(data._id)}
+										sx={btnStyle}
+										variant="contained"
+										color="error"
+										key="three">
+										<DeleteForeverRoundedIcon /> Delete
+									</Button>
+								</CardActions>
+							</Card>
+						);
+					})
+					.reverse()
+					.slice(0, 1)
+			)}
 		</Box>
 	);
 };
