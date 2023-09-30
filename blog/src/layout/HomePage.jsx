@@ -27,7 +27,7 @@ const HomePage = () => {
 		flexDirection: "column",
 		justifyContent: "center",
 		alignItems: "center",
-		background: "linear-gradient(262deg, #FFE7A8, #7890F5)",
+		background: "#1999C0",
 	};
 
 	const firstSection = {

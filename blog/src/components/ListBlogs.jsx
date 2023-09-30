@@ -1,10 +1,10 @@
 import {
 	Box,
+	CircularProgress,
 	List,
 	ListItem,
 	ListItemButton,
 	ListItemText,
-	Typography,
 } from "@mui/material";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -47,7 +47,10 @@ const ListBlogs = () => {
 						alignItems: "center",
 						justifyContent: "center",
 					}}>
-					<Typography variant="h5">No Blogs Found</Typography>
+					<CircularProgress
+						color={"primary"}
+						size={80}
+					/>
 				</Box>
 			) : (
 				myData

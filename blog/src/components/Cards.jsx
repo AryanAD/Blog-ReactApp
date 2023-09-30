@@ -4,6 +4,7 @@ import {
 	CardActions,
 	CardContent,
 	CardMedia,
+	CircularProgress,
 	Typography,
 } from "@mui/material";
 import axios from "axios";
@@ -54,9 +55,10 @@ const Cards = () => {
 						alignItems: "center",
 						boxShadow: "0 6px 12px rgba(0, 0, 0, 0.3)",
 					}}>
-					<CardContent>
-						<Typography variant="h4">No Blogs Found</Typography>
-					</CardContent>
+					<CircularProgress
+						color={"primary"}
+						size={80}
+					/>
 				</Card>
 			) : (
 				myData
