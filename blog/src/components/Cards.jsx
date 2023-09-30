@@ -81,7 +81,7 @@ const Cards = () => {
 									<Typography
 										variant="body2"
 										color="text.secondary">
-										{limitLength(data.description, 40)}
+										{limitLength(data.description, 95)}
 									</Typography>
 								</CardContent>
 								<CardActions>
