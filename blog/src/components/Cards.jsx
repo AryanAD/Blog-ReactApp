@@ -30,7 +30,7 @@ const Cards = () => {
 		whiteSpace: "nowrap",
 		overflow: "hidden",
 		textOverflow: "ellipsis",
-		maxWidth: "250px",
+		maxWidth: "300px",
 	};
 	const limitLength = (text, limit) => {
 		if (text.length > limit) {
@@ -45,6 +45,7 @@ const Cards = () => {
 				<Card
 					sx={{
 						borderRadius: "13px",
+						minWidth: "250px",
 						maxWidth: "250px",
 						bgcolor: "#4bb7f1",
 						display: "flex",
@@ -57,13 +58,11 @@ const Cards = () => {
 				</Card>
 			) : (
 				myData
-					.slice(0, 6)
-					.reverse()
 					.map((data) => {
 						return (
 							<Card
 								key={data.id}
-								sx={{ borderRadius: "13px" }}>
+								sx={{ borderRadius: "13px", width: "300px" }}>
 								<CardMedia
 									component="img"
 									alt="Blog Image"
@@ -99,6 +98,8 @@ const Cards = () => {
 							</Card>
 						);
 					})
+					.reverse()
+					.slice(0, 6)
 			)}
 		</>
 	);
