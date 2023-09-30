@@ -50,21 +50,23 @@ const ListBlogs = () => {
 					<Typography variant="h5">No Blogs Found</Typography>
 				</Box>
 			) : (
-				myData.map((data) => {
-					return (
-						<ListItem
-							sx={{ borderBottom: "1px solid gray" }}
-							key={data.id}
-							disablePadding>
-							<ListItemButton
-								onClick={() => {
-									navigate(`/blogs/${data._id}`, {});
-								}}>
-								<ListItemText primary={data.title}></ListItemText>
-							</ListItemButton>
-						</ListItem>
-					);
-				})
+				myData
+					.map((data) => {
+						return (
+							<ListItem
+								sx={{ borderBottom: "1px solid gray" }}
+								key={data.id}
+								disablePadding>
+								<ListItemButton
+									onClick={() => {
+										navigate(`/blogs/${data._id}`, {});
+									}}>
+									<ListItemText primary={data.title}></ListItemText>
+								</ListItemButton>
+							</ListItem>
+						);
+					})
+					.reverse()
 			)}
 		</List>
 	);
