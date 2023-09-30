@@ -17,7 +17,6 @@ const ListBlogs = () => {
 	const fetchMyData = async () => {
 		try {
 			let response = await axios.get(`http://localhost:3000/blogs`);
-			console.log(response);
 			setMyData(response.data.blogs);
 		} catch (err) {
 			console.log(`Error: ${err.message}`);
