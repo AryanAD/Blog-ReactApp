@@ -8,13 +8,10 @@ const BlogDisplay = () => {
 
 	const { id } = useParams();
 
-	console.log(id);
-
 	useEffect(() => {
 		const fetchBlogData = async () => {
 			try {
 				let response = await axios.get(`http://localhost:3000/blogs/${id}`);
-				console.log(response);
 				setBlogData(response.data.blogs);
 			} catch (err) {
 				console.error("Error: " + err.message);
@@ -23,8 +20,6 @@ const BlogDisplay = () => {
 
 		fetchBlogData();
 	}, [id]);
-
-	// console.log(blogData);
 
 	return (
 		<Container
