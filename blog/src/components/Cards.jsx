@@ -8,8 +8,10 @@ import {
 } from "@mui/material";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router";
 
 const Cards = () => {
+	const navigate = useNavigate();
 	const [myData, setMyData] = useState([]);
 
 	const fetchMyData = async () => {
@@ -80,6 +82,9 @@ const Cards = () => {
 								</CardContent>
 								<CardActions>
 									<Button
+										onClick={() => {
+											navigate(`/blogs/${data._id}`, {});
+										}}
 										color="info"
 										size="small"
 										variant="contained"
