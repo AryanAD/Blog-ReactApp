@@ -31,7 +31,7 @@ const ListBlogs = () => {
 			sx={{
 				width: "100%",
 				maxWidth: 360,
-				height: 546,
+				height: 562,
 				overflowY: "scroll",
 				textAlign: "left",
 				bgcolor: "#4bb7f1",

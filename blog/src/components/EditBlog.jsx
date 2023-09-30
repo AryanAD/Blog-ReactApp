@@ -13,18 +13,17 @@ import { toast } from "react-toastify";
 
 const EditBlog = () => {
 	const nav = useNavigate();
-	const { id } = useParams(); // Assuming you have a route parameter for the blog ID
+	const { id } = useParams();
 	const [title, setTitle] = useState("");
 	const [description, setDescription] = useState("");
 	const [file, setFile] = useState(null);
 	const [errorMessage, setErrorMessage] = useState("");
 
-	// Fetch existing blog data when the component mounts
 	useEffect(() => {
 		const fetchBlogData = async () => {
 			try {
 				const response = await axios.get(`http://localhost:3000/blogs/${id}`);
-				const blogData = response.data;
+				const blogData = response.data.blogs;
 				setTitle(blogData.title);
 				setDescription(blogData.description);
 			} catch (error) {
@@ -45,7 +44,7 @@ const EditBlog = () => {
 			formData.append("description", description);
 			formData.append("image", file);
 
-			const response = await axios.put(
+			const response = await axios.patch(
 				`http://localhost:3000/blogs/${id}`, // Update the existing blog by ID
 				formData
 			);
