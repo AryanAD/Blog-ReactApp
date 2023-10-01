@@ -37,7 +37,7 @@ const limitText = (text, limit) => {
 	return text;
 };
 
-const Modify = ({ selectedBlog }) => {
+const Modify = () => {
 	const navigate = useNavigate();
 	const [myData, setMyData] = useState([]);
 
@@ -72,64 +72,7 @@ const Modify = ({ selectedBlog }) => {
 
 	return (
 		<Box>
-			{selectedBlog ? (
-				<Card
-					key={selectedBlog._id}
-					sx={cardStyle}>
-					<CardMedia
-						component="img"
-						alt="Blog Image"
-						height="400"
-						image={selectedBlog.image}
-					/>
-					<CardContent>
-						<Typography
-							gutterBottom
-							variant="h5"
-							component="Box">
-							{selectedBlog.title}
-							<hr />
-						</Typography>
-						<Typography
-							variant="body2"
-							color="text.secondary">
-							{limitText(selectedBlog.description, 280)}
-						</Typography>
-					</CardContent>
-					<CardActions
-						sx={{
-							display: "flex",
-							justifyContent: "space-around",
-						}}>
-						<Button
-							onClick={() => {
-								navigate(`/blogs/${selectedBlog._id}`, {});
-							}}
-							sx={btnStyle}
-							variant="contained"
-							color="info"
-							key="one">
-							<OpenInNewRoundedIcon /> Visit
-						</Button>
-						<Button
-							onClick={() => handleEdit(selectedBlog._id)}
-							sx={btnStyle}
-							variant="contained"
-							color="success"
-							key="two">
-							<AddRoundedIcon /> Edit
-						</Button>
-						<Button
-							onClick={() => handleDelete(selectedBlog._id)}
-							sx={btnStyle}
-							variant="contained"
-							color="error"
-							key="three">
-							<DeleteForeverRoundedIcon /> Delete
-						</Button>
-					</CardActions>
-				</Card>
-			) : myData.length === 0 ? (
+			{myData.length === 0 ? (
 				<Card
 					sx={{
 						borderRadius: "13px",

@@ -7,6 +7,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import BlogDisplay from "./components/BlogDisplay";
 import EditBlog from "./components/EditBlog";
+import Modify from "./components/Modify";
 
 const App = () => {
 	return (
@@ -29,8 +30,12 @@ const App = () => {
 				<Routes>
 					<Route
 						path="/"
-						element={<HomePage />}
-					/>
+						element={<HomePage />}>
+						<Route
+							path="/modify"
+							element={<Modify />}
+						/>
+					</Route>
 					<Route
 						path="cards/:id"
 						element={<Cards />}
