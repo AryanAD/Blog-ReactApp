@@ -62,7 +62,6 @@ const ListBlogs = () => {
 								disablePadding>
 								<ListItemButton
 									onClick={() => {
-										// Use the navigate function to navigate to the desired URL
 										navigate(`/modify/${data._id}`);
 									}}>
 									<ListItemText primary={data.title}></ListItemText>
