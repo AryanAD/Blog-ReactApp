@@ -73,12 +73,15 @@ const HomePage = () => {
 				<Cards />
 			</Box>
 			<Box sx={secondSection}>
-				<Box sx={leftSecond}>
+				<Box>
+					<ListBlogs />
+				</Box>
+				{/* <Box sx={leftSecond}>
 					<Modify />
 				</Box>
 				<Box sx={rightSecond}>
 					<ListBlogs />
-				</Box>
+				</Box> */}
 			</Box>
 
 			<Link href="/create">

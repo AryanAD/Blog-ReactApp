@@ -9,6 +9,7 @@ import {
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
+import Modify from "./Modify";
 
 const ListBlogs = () => {
 	const navigate = useNavigate();
@@ -26,52 +27,57 @@ const ListBlogs = () => {
 		fetchMyData();
 	}, []);
 
+	const listStyle = {
+		width: "100%",
+		maxWidth: 360,
+		overflowY: "scroll",
+		textAlign: "left",
+		bgcolor: "#4bb7f1",
+		borderRadius: "11px",
+		boxShadow: "0 6px 12px rgba(0, 0, 0, 0.3)",
+		color: "#000",
+	};
+
+	const boxStyle = {
+		height: "100%",
+		display: "flex",
+		alignItems: "center",
+		justifyContent: "center",
+	};
+
 	return (
-		<List
-			sx={{
-				width: "100%",
-				maxWidth: 360,
-				height: 546,
-				overflowY: "scroll",
-				textAlign: "left",
-				bgcolor: "#4bb7f1",
-				borderRadius: "11px",
-				boxShadow: "0 6px 12px rgba(0, 0, 0, 0.3)",
-				color: "#000",
-			}}>
-			{myData.length === 0 ? (
-				<Box
-					sx={{
-						height: "100%",
-						display: "flex",
-						alignItems: "center",
-						justifyContent: "center",
-					}}>
-					<CircularProgress
-						color={"primary"}
-						size={80}
-					/>
-				</Box>
-			) : (
-				myData
-					.map((data) => {
-						return (
-							<ListItem
-								sx={{ borderBottom: "1px solid gray" }}
-								key={data.id}
-								disablePadding>
-								<ListItemButton
-									onClick={() => {
-										navigate(`/modify/${data._id}`);
-									}}>
-									<ListItemText primary={data.title}></ListItemText>
-								</ListItemButton>
-							</ListItem>
-						);
-					})
-					.reverse()
-			)}
-		</List>
+		<Box sx={{ display: "flex", gap: 2 }}>
+			<Modify />
+			<List sx={listStyle}>
+				{myData.length === 0 ? (
+					<Box sx={boxStyle}>
+						<CircularProgress
+							color={"primary"}
+							size={80}
+						/>
+					</Box>
+				) : (
+					myData
+						.map((data) => {
+							return (
+								<ListItem
+									sx={{ borderBottom: "1px solid gray" }}
+									key={data.id}
+									disablePadding>
+									<ListItemButton
+										onClick={() => {
+											const listID = data._id;
+											console.log(listID);
+										}}>
+										<ListItemText primary={data.title}></ListItemText>
+									</ListItemButton>
+								</ListItem>
+							);
+						})
+						.reverse()
+				)}
+			</List>
+		</Box>
 	);
 };
 
