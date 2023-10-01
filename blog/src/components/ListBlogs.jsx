@@ -9,6 +9,7 @@ import {
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Modify from "./Modify";
+import Cards from "./Cards";
 
 const ListBlogs = () => {
 	const [listID, setListID] = useState();
@@ -41,47 +42,70 @@ const ListBlogs = () => {
 		color: "#000",
 	};
 
-	const boxStyle = {
+	const listBoxStyle = {
 		height: "100%",
 		display: "flex",
 		alignItems: "center",
 		justifyContent: "center",
 	};
 
+	const cardFirstSection = {
+		margin: "25px auto 25px",
+		maxWidth: "90vw",
+		maxHeight: "35vh",
+		display: "flex",
+		// justifyContent: "space-around",
+		gap: "1%",
+	};
+
+	const cardSecondSection = {
+		margin: "auto auto 25px",
+		width: "90vw",
+		display: "flex",
+		flexDirection: "row",
+		justifyContent: "center",
+		gap: "1%",
+	};
+
 	return (
-		<Box sx={{ display: "flex", gap: 2 }}>
-			<Modify
-				listID={listID}
-				onBlogDeleted={handleBlogDeleted}
-			/>
-			<List sx={listStyle}>
-				{myData.length === 0 ? (
-					<Box sx={boxStyle}>
-						<CircularProgress
-							color={"primary"}
-							size={80}
-						/>
-					</Box>
-				) : (
-					myData
-						.map((data) => {
-							return (
-								<ListItem
-									sx={{ borderBottom: "1px solid gray" }}
-									key={data.id}
-									disablePadding>
-									<ListItemButton
-										onClick={() => {
-											setListID(data._id);
-										}}>
-										<ListItemText primary={data.title}></ListItemText>
-									</ListItemButton>
-								</ListItem>
-							);
-						})
-						.reverse()
-				)}
-			</List>
+		<Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+			<Box sx={cardFirstSection}>
+				<Cards myData={myData} />
+			</Box>
+			<Box sx={cardSecondSection}>
+				<Modify
+					listID={listID}
+					onBlogDeleted={handleBlogDeleted}
+				/>
+				<List sx={listStyle}>
+					{myData.length === 0 ? (
+						<Box sx={listBoxStyle}>
+							<CircularProgress
+								color={"primary"}
+								size={80}
+							/>
+						</Box>
+					) : (
+						myData
+							.map((data) => {
+								return (
+									<ListItem
+										sx={{ borderBottom: "1px solid gray" }}
+										key={data.id}
+										disablePadding>
+										<ListItemButton
+											onClick={() => {
+												setListID(data._id);
+											}}>
+											<ListItemText primary={data.title}></ListItemText>
+										</ListItemButton>
+									</ListItem>
+								);
+							})
+							.reverse()
+					)}
+				</List>
+			</Box>
 		</Box>
 	);
 };

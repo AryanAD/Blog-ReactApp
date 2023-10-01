@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import CircularProgress from "@mui/material/CircularProgress";
@@ -14,6 +13,7 @@ import {
 import OpenInNewRoundedIcon from "@mui/icons-material/OpenInNewRounded";
 import AddRoundedIcon from "@mui/icons-material/AddRounded";
 import DeleteForeverRoundedIcon from "@mui/icons-material/DeleteForeverRounded";
+import { useEffect, useState } from "react";
 
 const cardStyle = {
 	width: "70vw",
@@ -50,6 +50,7 @@ const Modify = ({ listID, onBlogDeleted }) => {
 			console.log(`Error: ${error.message}`);
 		}
 	};
+
 	useEffect(() => {
 		fetchDefaultData();
 	}, []);
@@ -191,12 +192,24 @@ const Modify = ({ listID, onBlogDeleted }) => {
 						</Button>
 					</CardActions>
 				</Card>
-			) : (
-				<CircularProgress
-					color={"primary"}
-					size={80}
-				/>
-			)}
+			) : defaultData.length === 0 && !myData ? (
+				<Card
+					sx={{
+						width: "70vw",
+						height: 500,
+						borderRadius: "11px",
+						boxShadow: "0 6px 12px rgba(0, 0, 0, 0.3)",
+						bgcolor: "#4bb7f1",
+						display: "flex",
+						justifyContent: "center",
+						alignItems: "center",
+					}}>
+					<CircularProgress
+						color={"primary"}
+						size={80}
+					/>
+				</Card>
+			) : null}
 		</Box>
 	);
 };

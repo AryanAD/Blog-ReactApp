@@ -1,6 +1,5 @@
 import { Box, IconButton, Link, styled } from "@mui/material";
 import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
-import Cards from "../components/Cards";
 import ListBlogs from "../components/ListBlogs";
 import { AddRounded } from "@mui/icons-material";
 import Footer from "./Footer";
@@ -29,34 +28,6 @@ const HomePage = () => {
 		background: "#1999C0",
 	};
 
-	const firstSection = {
-		margin: "25px auto 25px",
-		maxWidth: "90vw",
-		maxHeight: "35vh",
-		display: "flex",
-		// justifyContent: "space-around",
-		gap: "1%",
-	};
-
-	const secondSection = {
-		margin: "auto auto 25px",
-		width: "90vw",
-		display: "flex",
-		flexDirection: "row",
-		justifyContent: "center",
-		gap: "1%",
-	};
-
-	// const leftSecond = {
-	// 	display: "flex",
-	// 	width: "75vw",
-	// 	flexDirection: "column",
-	// };
-	// const rightSecond = {
-	// 	display: "flex",
-	// 	width: "100%",
-	// };
-
 	const createButton = {
 		position: "fixed",
 		borderRadius: "50%",
@@ -68,20 +39,7 @@ const HomePage = () => {
 	};
 	return (
 		<Box sx={homeBG}>
-			<Box sx={firstSection}>
-				<Cards />
-			</Box>
-			<Box sx={secondSection}>
-				<Box>
-					<ListBlogs />
-				</Box>
-				{/* <Box sx={leftSecond}>
-					<Modify />
-				</Box>
-				<Box sx={rightSecond}>
-					<ListBlogs />
-				</Box> */}
-			</Box>
+			<ListBlogs />
 
 			<Link href="/create">
 				<IconButton>

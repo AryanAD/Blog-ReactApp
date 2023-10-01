@@ -45,7 +45,7 @@ const BlogDisplay = () => {
 			<hr />
 			<Box sx={{ marginTop: 2, height: "100%" }}>
 				<Typography
-					style={{ textAlign: "justify", paddingBottom: 10 }}
+					sx={{ textAlign: "justify", paddingBottom: 10 }}
 					variant="body1">
 					&emsp;&emsp;
 					{blogData.description}

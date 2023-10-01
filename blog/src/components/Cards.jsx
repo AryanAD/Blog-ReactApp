@@ -1,31 +1,16 @@
 import {
-	Button,
 	Card,
 	CardActions,
 	CardContent,
 	CardMedia,
 	CircularProgress,
+	Button,
 	Typography,
 } from "@mui/material";
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 
-const Cards = () => {
+const Cards = ({ myData }) => {
 	const navigate = useNavigate();
-	const [myData, setMyData] = useState([]);
-
-	const fetchMyData = async () => {
-		try {
-			let response = await axios.get(`http://localhost:3000/blogs`);
-			setMyData(response.data.blogs);
-		} catch (err) {
-			console.log(`Error: ${err.message}`);
-		}
-	};
-	useEffect(() => {
-		fetchMyData();
-	}, []);
 
 	const overflowWrap = {
 		whiteSpace: "nowrap",
@@ -34,7 +19,8 @@ const Cards = () => {
 		maxWidth: "300px",
 		marginBottom: 1,
 	};
-	const limitLength = (text, limit) => {
+
+	const limitText = (text, limit) => {
 		if (text.length > limit) {
 			return text.substring(0, limit) + "...";
 		}
@@ -86,7 +72,7 @@ const Cards = () => {
 										sx={{ marginTop: 1, marginBottom: 0 }}
 										variant="body2"
 										color="text.secondary">
-										{limitLength(data.description, 60)}
+										{limitText(data.description, 60)}
 									</Typography>
 								</CardContent>
 								<CardActions>
