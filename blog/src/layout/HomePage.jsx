@@ -1,7 +1,6 @@
 import { Box, IconButton, Link, styled } from "@mui/material";
 import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
 import Cards from "../components/Cards";
-import Modify from "../components/Modify";
 import ListBlogs from "../components/ListBlogs";
 import { AddRounded } from "@mui/icons-material";
 import Footer from "./Footer";
@@ -48,15 +47,15 @@ const HomePage = () => {
 		gap: "1%",
 	};
 
-	const leftSecond = {
-		display: "flex",
-		width: "75vw",
-		flexDirection: "column",
-	};
-	const rightSecond = {
-		display: "flex",
-		width: "100%",
-	};
+	// const leftSecond = {
+	// 	display: "flex",
+	// 	width: "75vw",
+	// 	flexDirection: "column",
+	// };
+	// const rightSecond = {
+	// 	display: "flex",
+	// 	width: "100%",
+	// };
 
 	const createButton = {
 		position: "fixed",

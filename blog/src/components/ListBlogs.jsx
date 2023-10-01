@@ -8,11 +8,10 @@ import {
 } from "@mui/material";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router";
 import Modify from "./Modify";
 
 const ListBlogs = () => {
-	const navigate = useNavigate();
+	const [listID, setListID] = useState();
 	const [myData, setMyData] = useState([]);
 
 	const fetchMyData = async () => {
@@ -47,7 +46,7 @@ const ListBlogs = () => {
 
 	return (
 		<Box sx={{ display: "flex", gap: 2 }}>
-			<Modify />
+			<Modify listID={listID} />
 			<List sx={listStyle}>
 				{myData.length === 0 ? (
 					<Box sx={boxStyle}>
@@ -66,8 +65,7 @@ const ListBlogs = () => {
 									disablePadding>
 									<ListItemButton
 										onClick={() => {
-											const listID = data._id;
-											console.log(listID);
+											setListID(data._id);
 										}}>
 										<ListItemText primary={data.title}></ListItemText>
 									</ListItemButton>

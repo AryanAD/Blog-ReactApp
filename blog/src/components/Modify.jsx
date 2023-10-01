@@ -37,7 +37,7 @@ const limitText = (text, limit) => {
 	return text;
 };
 
-const Modify = () => {
+const Modify = ({ listID }) => {
 	const navigate = useNavigate();
 	const [myData, setMyData] = useState([]);
 
