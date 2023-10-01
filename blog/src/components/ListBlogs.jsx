@@ -26,6 +26,10 @@ const ListBlogs = () => {
 		fetchMyData();
 	}, []);
 
+	const handleBlogDeleted = () => {
+		fetchMyData();
+	};
+
 	const listStyle = {
 		width: "100%",
 		maxWidth: 360,
@@ -46,7 +50,10 @@ const ListBlogs = () => {
 
 	return (
 		<Box sx={{ display: "flex", gap: 2 }}>
-			<Modify listID={listID} />
+			<Modify
+				listID={listID}
+				onBlogDeleted={handleBlogDeleted}
+			/>
 			<List sx={listStyle}>
 				{myData.length === 0 ? (
 					<Box sx={boxStyle}>

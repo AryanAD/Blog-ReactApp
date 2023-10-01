@@ -37,7 +37,7 @@ const limitText = (text, limit) => {
 	return text;
 };
 
-const Modify = ({ listID }) => {
+const Modify = ({ listID, onBlogDeleted }) => {
 	const navigate = useNavigate();
 	const [myData, setMyData] = useState(null);
 	const [defaultData, setDefaultData] = useState([]);
@@ -75,6 +75,7 @@ const Modify = ({ listID }) => {
 			console.log(`Blog with ID ${id} deleted successfully.`);
 			fetchDefaultData();
 			fetchMyData();
+			onBlogDeleted();
 		} catch (error) {
 			console.error(`Error deleting blog with ID ${id}:`, error);
 		}
