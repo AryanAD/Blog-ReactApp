@@ -1,3 +1,7 @@
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import CircularProgress from "@mui/material/CircularProgress";
 import {
 	Box,
 	Button,
@@ -5,15 +9,11 @@ import {
 	CardActions,
 	CardContent,
 	CardMedia,
-	CircularProgress,
 	Typography,
 } from "@mui/material";
 import OpenInNewRoundedIcon from "@mui/icons-material/OpenInNewRounded";
 import AddRoundedIcon from "@mui/icons-material/AddRounded";
 import DeleteForeverRoundedIcon from "@mui/icons-material/DeleteForeverRounded";
-import { useEffect, useState } from "react";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
 
 const cardStyle = {
 	width: "70vw",
@@ -31,7 +31,7 @@ const btnStyle = {
 };
 
 const limitText = (text, limit) => {
-	if (text.length > limit) {
+	if (typeof text === "string" && text.length > limit) {
 		return text.substring(0, limit) + "...";
 	}
 	return text;
@@ -39,11 +39,26 @@ const limitText = (text, limit) => {
 
 const Modify = ({ listID }) => {
 	const navigate = useNavigate();
-	const [myData, setMyData] = useState([]);
+	const [myData, setMyData] = useState(null);
+	const [defaultData, setDefaultData] = useState([]);
+
+	const fetchDefaultData = async () => {
+		try {
+			const res = await axios.get(`http://localhost:3000/blogs`);
+			setDefaultData(res.data.blogs);
+		} catch (error) {
+			console.log(`Error: ${error.message}`);
+		}
+	};
+	useEffect(() => {
+		fetchDefaultData();
+	}, []);
+
+	const reverseData = [...defaultData].reverse();
 
 	const fetchMyData = async () => {
 		try {
-			let response = await axios.get(`http://localhost:3000/blogs`);
+			const response = await axios.get(`http://localhost:3000/blogs/${listID}`);
 			setMyData(response.data.blogs);
 		} catch (err) {
 			console.log(`Error: ${err.message}`);
@@ -52,15 +67,14 @@ const Modify = ({ listID }) => {
 
 	useEffect(() => {
 		fetchMyData();
-	}, []);
+	}, [listID]);
 
 	const handleDelete = async (id) => {
 		try {
 			await axios.delete(`http://localhost:3000/blogs/${id}`);
-
-			setMyData((prevData) => prevData.filter((blog) => blog._id !== id));
-			window.location.reload();
 			console.log(`Blog with ID ${id} deleted successfully.`);
+			fetchDefaultData();
+			fetchMyData();
 		} catch (error) {
 			console.error(`Error deleting blog with ID ${id}:`, error);
 		}
@@ -72,85 +86,115 @@ const Modify = ({ listID }) => {
 
 	return (
 		<Box>
-			{myData.length === 0 ? (
-				<Card
-					sx={{
-						borderRadius: "13px",
-						width: 1350,
-						height: 546,
-						bgcolor: "#4bb7f1",
-						display: "flex",
-						justifyContent: "center",
-						alignItems: "center",
-						boxShadow: "0 6px 12px rgba(0, 0, 0, 0.3)",
-					}}>
-					<CircularProgress
-						color={"primary"}
-						size={80}
+			{myData ? (
+				<Card sx={cardStyle}>
+					<CardMedia
+						component="img"
+						alt="Blog Image"
+						height="400"
+						image={myData.image}
 					/>
+					<CardContent>
+						<Typography
+							gutterBottom
+							variant="h5"
+							component="div">
+							{myData.title}
+							<hr />
+						</Typography>
+						<Typography
+							variant="body2"
+							color="text.secondary">
+							{limitText(myData.description, 280)}
+						</Typography>
+					</CardContent>
+					<CardActions
+						sx={{
+							display: "flex",
+							justifyContent: "space-around",
+						}}>
+						<Button
+							onClick={() => {
+								navigate(`/blogs/${myData._id}`, {});
+							}}
+							sx={btnStyle}
+							variant="contained"
+							color="info">
+							<OpenInNewRoundedIcon /> Visit
+						</Button>
+						<Button
+							onClick={() => handleEdit(myData._id)}
+							sx={btnStyle}
+							variant="contained"
+							color="success">
+							<AddRoundedIcon /> Edit
+						</Button>
+						<Button
+							onClick={() => handleDelete(myData._id)}
+							sx={btnStyle}
+							variant="contained"
+							color="error">
+							<DeleteForeverRoundedIcon /> Delete
+						</Button>
+					</CardActions>
+				</Card>
+			) : defaultData ? (
+				<Card sx={cardStyle}>
+					<CardMedia
+						component="img"
+						alt="Blog Image"
+						height="400"
+						image={reverseData[0]?.image}
+					/>
+					<CardContent>
+						<Typography
+							gutterBottom
+							variant="h5"
+							component="div">
+							{reverseData[0]?.title}
+							<hr />
+						</Typography>
+						<Typography
+							variant="body2"
+							color="text.secondary">
+							{limitText(reverseData[0]?.description, 280)}
+						</Typography>
+					</CardContent>
+					<CardActions
+						sx={{
+							display: "flex",
+							justifyContent: "space-around",
+						}}>
+						<Button
+							onClick={() => {
+								navigate(`/blogs/${reverseData[0]?._id}`, {});
+							}}
+							sx={btnStyle}
+							variant="contained"
+							color="info">
+							<OpenInNewRoundedIcon /> Visit
+						</Button>
+						<Button
+							onClick={() => handleEdit(reverseData[0]?._id)}
+							sx={btnStyle}
+							variant="contained"
+							color="success">
+							<AddRoundedIcon /> Edit
+						</Button>
+						<Button
+							onClick={() => handleDelete(reverseData[0]?._id)}
+							sx={btnStyle}
+							variant="contained"
+							color="error">
+							<DeleteForeverRoundedIcon /> Delete
+						</Button>
+					</CardActions>
 				</Card>
 			) : (
-				myData
-					.map((data) => (
-						<Card
-							key={data._id}
-							sx={cardStyle}>
-							<CardMedia
-								component="img"
-								alt="Blog Image"
-								height="400"
-								image={data.image}
-							/>
-							<CardContent>
-								<Typography
-									gutterBottom
-									variant="h5"
-									component="Box">
-									{data.title}
-									<hr />
-								</Typography>
-								<Typography
-									variant="body2"
-									color="text.secondary">
-									{limitText(data.description, 280)}
-								</Typography>
-							</CardContent>
-							<CardActions
-								sx={{
-									display: "flex",
-									justifyContent: "space-around",
-								}}>
-								<Button
-									onClick={() => {
-										navigate(`/blogs/${data._id}`, {});
-									}}
-									sx={btnStyle}
-									variant="contained"
-									color="info"
-									key="one">
-									<OpenInNewRoundedIcon /> Visit
-								</Button>
-								<Button
-									onClick={() => handleEdit(data._id)}
-									sx={btnStyle}
-									variant="contained"
-									color="success"
-									key="two">
-									<AddRoundedIcon /> Edit
-								</Button>
-								<Button
-									onClick={() => handleDelete(data._id)}
-									sx={btnStyle}
-									variant="contained"
-									color="error"
-									key="three">
-									<DeleteForeverRoundedIcon /> Delete
-								</Button>
-							</CardActions>
-						</Card>
-					))
-					.reverse()
-					.slice(0, 1)
+				<CircularProgress
+					color={"primary"}
+					size={80}
+				/>
 			)}
 		</Box>
 	);
